@@ -1,0 +1,28 @@
+<%= form_for @item_groups, :html => {:class => "new-horizontal"} do |f| %>
+<div class="well">
+  <div class="form-group">
+    <label class="control-label col-md-2" for="name"> Name </label>
+    <div class="col-md-7">
+      <%= f.text_field :name, :class => "new-control", :id => "name", :placeholder => "Enter Name" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-md-2" for="parent_id">Parent-Id</label>
+    <div class="col-md-7">
+      <%=f.collection_select :parent_id, Item.order(:name), :id, :name, {prompt: "Select Category"}, {class: "new-control"}%>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-md-2" for="description">Description</label>
+    <div class="col-md-7">
+      <%= f.text_area :description, :class => "new-control", :id => "description", :placeholder => "Description" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= f.submit(type: 'submit', class: "btn btn-success") %>
+    </div>
+  </div>
+  </form>
+</div>
+<% end %>

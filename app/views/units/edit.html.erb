@@ -1,0 +1,22 @@
+<%= form_for @units, :html => {:class => "new-horizontal"} do |f| %>
+<div class="well">
+  <div class="form-group">
+    <label class="control-label col-md-2" for="name"> Name </label>
+    <div class="col-md-7">
+      <%= f.text_field :name, :class => "new-control", :id => "name", :placeholder => "Name" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-md-2" for="print_name">Print-name</label>
+    <div class="col-md-7">
+      <%= f.text_field :print_name, :class => "new-control", :id => "print_name", :placeholder => "Print-name" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= f.submit(type: 'submit', class: "btn btn-success") %>
+    </div>
+    </form>
+  </div>
+</div>
+<% end %>

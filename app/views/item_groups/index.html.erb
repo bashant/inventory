@@ -1,0 +1,27 @@
+<div class="row" xmlns:font-size="http://www.w3.org/1999/xhtml">
+  <table class="table table-striped table-bordered">
+    <div class="action text-right">
+      <a href="<%= new_item_group_path %>" class="btn btn-primary"><span><i class="fa fa-plus-square"></i></span>New</a>
+
+    </div>
+    <tr>
+      <th>Name</th>
+      <th>Parent-Id</th>
+      <th>Description</th>
+      <th>Actions</th>
+    </tr>
+    <% @item_groups.each do |item_groups| %>
+        <tr>
+          <td><%= item_groups.name %></td>
+          <td><%= item_groups.parent_id %></td>
+          <td><%= item_groups.description %></td>
+          <td><%= link_to "", edit_item_group_path(item_groups), :class => "fa fa-pencil", :title => "Edit" %>
+          <%= link_to "",item_group_path(item_groups),:class => "fa fa-trash", :title => "Delete",
+                          method: :delete,
+                          data: {confirm: "Are you sure"} %></td>
+
+        </tr>
+
+    <% end %>
+  </table>
+</div>

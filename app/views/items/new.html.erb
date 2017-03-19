@@ -1,0 +1,97 @@
+<%= form_for @items, :html => {:class => "new-horizontal"} do |f| %>
+    <div class="alert-danger">
+      <% if @items.errors.any? %>
+          <h2>
+            <%= pluralize(@items.errors.count, "error") %>
+            occured
+          </h2>
+          <ul>
+            <%= @items.errors.full_messages.each do |e| %>
+                <li> <%= e %>
+                </li>
+            <% end %>
+          </ul>
+
+      <% end %>
+    </div>
+    <div class="well">
+      <div class="form-group">
+        <label class="control-label col-md-2" for="name"> Name </label>
+        <div class="col-md-7">
+          <%= f.text_field :name, :class => "new-control", :id => "name", :placeholder => "Enter Name" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-md-2" for="unit_id">Unit-Id</label>
+        <div class="col-md-7">
+          <%= f.text_field :unit_id, :class => "new-control", :id => "unit_id", :placeholder => "Unit-id" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-md-2" for="item_code">Item-code</label>
+        <div class="col-md-7">
+          <%= f.text_field :item_code, :class => "new-control", :id => "item_code", :placeholder => "Item-code" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-md-2" for="quantity">Quantity</label>
+        <div class="col-md-7">
+          <%= f.text_field :quantity, :class => "new-control", :id => "quantity", :placeholder => "Quantity" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-md-2" for="description">Description</label>
+        <div class="col-md-7">
+          <%= f.text_area :description, :class => "new-control", :id => "description", :placeholder => "Description" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-md-2" for="item_group_id">Item-group-id</label>
+        <div class="col-md-7">
+          <%= f.text_field :item_group_id, :class => "new-control", :id => "item_group_id", :placeholder => "Item" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-md-2" for="date-of-birth">Expiry-Date</label>
+        <div class="col-md-7">
+          <div class="input-group date">
+            <%= f.text_field :expiry_date, :class => "new-control  datepicker", :placeholder => "YY/MM/DD" %>
+            <label for="item_expiry_date" class="input-group-addon add-on"><i class="fa fa-calendar"></i></label>
+          </div>
+        </div>
+      </div>
+      <%= f.fields_for :stock do |g| %>
+          <div class="form-group">
+            <label class="control-label col-md-2" for="unit_price">Unit-price</label>
+            <div class="col-md-7">
+              <%= g.text_field :unit_price, :class => "new-control", :id => "unit_price", :placeholder => "Unit-price" %>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-md-2" for="item_groups">Item-groups</label>
+            <div class="col-md-7">
+              <%= f.collection_select :item_group_id, ItemGroup.order(:name), :id, :name, {prompt: "Select Category"}, {class: "new-control"} %>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-md-2" for="est_sell_price">Est-sell-price</label>
+            <div class="col-md-7">
+              <%= g.text_field :est_sell_price, :class => "new-control", :id => "est_sell_price", :placeholder => "Estimated price" %>
+            </div>
+          </div>
+      <% end %>
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <%= f.submit(type: 'submit', class: "btn btn-success") %>
+        </div>
+      </div>
+      <script src="bootstrap-datepicker.js"></script>
+      <script src="datepicker.css"></script>
+      <script>
+        $('.datepicker').datepicker({
+          format: "yyyy/mm/dd"
+        });
+      </script>
+    </div>
+
+<% end %>

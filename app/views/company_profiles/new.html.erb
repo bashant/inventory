@@ -1,0 +1,79 @@
+<%= form_for @company_profiles, :html => {:class => "new-horizontal"} do |f| %>
+    <div class="alert-danger">
+      <% if @company_profiles.errors.any? %>
+          <h2>
+            <%= pluralize(@company_profiles.errors.count, "error") %>
+            occured
+          </h2>
+          <ul>
+            <%= @company_profiles.errors.full_messages.each do |e| %>
+                <li> <%= e %>
+                </li>
+            <% end %>
+          </ul>
+
+      <% end %>
+    </div>
+    <div class="well">
+      <div class="form-group">
+        <label class="control-label col-md-2" for="name"> Name </label>
+        <div class="col-md-7">
+          <%= f.text_field :name, :class => "new-control", :id => "name", :placeholder => "Name" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-md-2" for="address">Address</label>
+        <div class="col-md-7">
+          <%= f.text_field :address, :class => "new-control", :id => "address", :placeholder => "address" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-md-2" for="vdc_mun">Vdc-mun</label>
+        <div class="col-md-7">
+          <%= f.text_field :vdc_mun, :class => "new-control", :id => "vdc_mun", :placeholder => "vdc/mun" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-md-2" for="ward_no">Ward-no</label>
+        <div class="col-md-7">
+          <%= f.text_field :ward_no, :class => "new-control", :id => "ward_no", :placeholder => "ward-no" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-md-2" for="phone_no">Phone-no</label>
+        <div class="col-md-7">
+          <%= f.text_field :phone_no, :class => "new-control", :id => "phone_no", :placeholder => "Phone-no" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-md-2" for="vat_pan_no">Vat_pan_no</label>
+        <div class="col-md-7">
+          <%= f.text_field :vat_pan_no, :class => "new-control", :id => "vat_pan_no", :placeholder => "Vat-pan-no" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-md-2" for="logo_url">Logo-url</label>
+        <div class="col-md-7">
+          <%= f.file_field :logo_url, :class => "new-control", :id => "logo_url", :placeholder => "Logo_url" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-md-2" for="district">District</label>
+        <div class="col-md-7">
+          <%= f.text_field :district, :class => "new-control", :id => "district", :placeholder => "Distrcit" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-md-2" for="zone">Zone</label>
+        <div class="col-md-7">
+          <%= f.text_field :zone, :class => "new-control", :id => "zone", :placeholder => "zone" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <%= f.submit(type: 'submit', class: "btn btn-success") %>
+        </div>
+      </div>
+    </div>
+<% end %>
+

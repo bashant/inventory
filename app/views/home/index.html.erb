@@ -1,0 +1,70 @@
+<% if user_signed_in? %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <%= link_to item_groups_path do %>
+          <div class="well">
+            <div align="center">
+              <%= image_tag("group.png") %>
+              <h3>ItemGroups</h3>
+            </div>
+      <% end %>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <%= link_to customers_path do %>
+          <div class="well">
+            <div align="center">
+              <%= image_tag("Customer.png") %>
+              <h3>Customer</h3>
+            </div>
+          </div>
+      <% end %>
+    </div>
+    <div class="col-md-4">
+      <%= link_to suppliers_path do %>
+          <div class="well">
+            <div align="center">
+              <%= image_tag("suppliers.png") %>
+              <h3>Suppliers</h3>
+            </div>
+          </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <%= link_to items_path do %>
+          <div class="well">
+            <div align="center">
+              <%= image_tag("items.png") %>
+              <h3>Items</h3>
+            </div>
+          </div>
+      <% end %>
+    </div>
+    <div class="col-md-4">
+      <%= link_to purchases_path do %>
+          <div class="well">
+            <div align="center">
+              <%= image_tag("purchases.png") %>
+              <h3>Purchases</h3>
+            </div>
+          </div>
+      <% end %>
+    </div>
+    <div class="col-md-4">
+      <%= link_to stocks_path do %>
+          <div class="well">
+            <div align="center">
+              <%= image_tag("stocks.png") %>
+              <h3>Stock</h3>
+            </div>
+          </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<% else %>
+
+<% end %>

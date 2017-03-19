@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head>
+  <title>Ims</title>
+  <%= csrf_meta_tags %>
+
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+
+<body>
+
+<% if user_signed_in? %>
+    <br>
+    <div class="container">
+      <div class="dropdown">
+        <div class="row">
+          <div class="col-md-18">
+            <nav class="navbar navbar-inverse">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                  </button>
+                  <a class="navbar-brand" href="#"><i class="fa fa-home" aria-hidden="true"></i>
+                    Neparica</a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                  <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li class="dropdown">
+                      <a class="dropdown-toggle" data-toggle="dropdown" href="settings">Settings<span class="caret"></span></a>
+                      <ul class="dropdown-menu">
+                        <li><a href="fiscal_years">Fiscal-year</a></li>
+                        <li><a href="units">Unit</a></li>
+                        <li><a href="company_profiles">CompanyProfile</a></li>
+                        <li><a href="logs">Logs</a></li>
+                      </ul>
+                    </li>
+                    <li class="dropdown">
+                      <a class="dropdown-toggle" data-toggle="dropdown" href="items">Items<span class="caret"></span></a>
+                      <ul class="dropdown-menu">
+                        <li><a href="item_groups">Item-group</a></li>
+                        <li><a href="items">Item</a></li>
+                      </ul>
+                    <li class="dropdown">
+                      <a class="dropdown-toggle" data-toggle="dropdown" href="Parties">Parties<span class="caret"></span></a>
+                      <ul class="dropdown-menu">
+                        <li><a href="suppliers">Supplier</a></li>
+                        <li><a href="customers">Customer</a></li>
+                        <li><a href="purchases">Purchase</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                  <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                      <a class="dropdown-toggle" data-toggle="dropdown" href="basanta.roy2015@gmail.com"><span class="glyphicon glyphicon-user"></span>basanta.roy2015@gmail.com</a>
+                      <ul class="dropdown-menu">
+                        <li><a href="#"><span class="glyphicon glyphicon-user"></span>basanta.roy2015@gmail.com</a></li>
+                        <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => "glyphicon glyphicon-log-out" %></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </nav>
+          </div>
+        </div>
+        </nav>
+<% else %>
+    <ul class="nav navbar-nav navbar">
+      <li><%= link_to "Login", new_user_session_path, :class => "glyphicon glyphicon-log-in" %></li>
+    </ul>
+<% end %>
+<div class="container">
+  <div class="row">
+    <%= bootstrap_flash %>
+    <% yield %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <ol class="breadcrumb">
+      <%= render_breadcrumbs :tag => :li, :separator => "" %>
+    </ol>
+  </div>
+</div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <ol class="breadcrumb">
+    </ol>
+    <%= yield %>
+  </div>
+</div>
+</div>
+</div>
+</body>
+
+</html>

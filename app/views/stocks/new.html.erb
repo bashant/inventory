@@ -1,0 +1,48 @@
+<%= form_for @stocks, :html => {:class => "new-horizontal"} do |f| %>
+<div class="alert-danger">
+  <% if @stocks.errors.any? %>
+      <h2>
+        <%= pluralize(@stocks.errors.count,"error")  %>
+        occured
+      </h2>
+      <ul>
+        <%= @stocks.errors.full_messages.each do |e| %>
+            <li> <%= e %>
+            </li>
+        <% end %>
+      </ul>
+      </div>
+  <% end %>
+  <div class="well">
+    <div class="form-group">
+      <label class="control-label col-md-2" for="item_id">Item-Id </label>
+      <div class="col-md-7">
+        <%= f.text_field :item_id, :class => "new-control", :id => "item_id", :placeholder => "item-id" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-md-2" for="quantity">Quantity</label>
+      <div class="col-md-7">
+        <%= f.text_field :quantity, :class => "new-control", :id => "quantity", :placeholder => "quantity" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-md-2" for="unit_price">Unit-price</label>
+      <div class="col-md-7">
+        <%= f.text_field :unit_price, :class => "new-control", :id => "unit_id", :placeholder => "Unit-price" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-md-2" for="est_sell_price">Est-sell-price</label>
+      <div class="col-md-7">
+        <%= f.text_field :est_sell_price, :class => "new-control", :id => "est_sell_price", :placeholder => "Est-sell-price" %>
+      </div>
+    </div>
+    <div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+    <%= f.submit(type: 'submit', class: "btn btn-success") %>
+      </div>
+      </div>
+  </div>
+</div>
+<% end %>
